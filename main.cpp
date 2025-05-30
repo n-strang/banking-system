@@ -21,14 +21,9 @@ struct accountData {
 // array that stores all accounts globally
 vector<accountData>allAccounts;
 
-// admin login
-void adminLoginPanel() {
-    cout << "admin" << endl;
-}
-
 // user login
 void userLoginPanel() {
-    cout << "admin" << endl;
+    // will add a deposit / withdrawal / view function
 }
 
 // prints data stored in account
@@ -67,37 +62,28 @@ void createNewAcc() {
 
 }
 
-// main menu (SWAP OUT VIEW ACCOUNTS TO ADMIN LOGIN)
-void accLoginType() {
+void adminPanel() {
     int userInput;
 
     while (true) {
-        cout << "\nPlease select from the following menu options (1-9)" << endl;
-        cout << "1. Admin login" << endl;
-        cout << "2. User login" << endl;
-        cout << "3. Create Account" << endl;
-        cout << "4. View created accounts" << endl;
-        cout << "0. End program" << endl;
-        cout << "Enter your choice: ";
+        cout << "welcome to the admin panel" << endl;
+        cout << "select from the following " << endl;
+        cout << "1. Create a new account(s) " << endl;
+        cout << "2. View created Account(s) " << endl;
+        cout << "0. exit admin panel " << endl;
         cin >> userInput;
         cout << endl;
 
         switch (userInput) {
             case 1:
-                adminLoginPanel();
-            break;
-            case 2:
-                userLoginPanel();
-            break;
-            case 3:
                 createNewAcc();
             break;
-            case 4:
+            case 2:
                 printAccData();
             break;
             case 0:
-                cout << "Exiting program..." << endl;
-            return;  // or break if you want to fall through
+                cout << "exiting admin panel... " << endl;
+            return;
             default:
                 cout << "Input not recognized, try again." << endl;
             break;
@@ -105,6 +91,60 @@ void accLoginType() {
     }
 }
 
+// admin login
+void adminLogin() {
+    // DEFAULT ADMIN LOGIN
+    string adminName = "admin";
+    string adminPassword = "123";
+    string loginNameAttempt;
+    string loginPasswordAttempt;
+
+    while (true) {
+        cout << "Enter admin username: ";
+        cin >> loginNameAttempt;
+        cout << "Enter admin password: ";
+        cin >> loginPasswordAttempt;
+        cout << endl;
+
+        if (loginNameAttempt == adminName && loginPasswordAttempt == adminPassword) {
+            cout << "Login successful!" << endl;
+            adminPanel();
+            break;
+        } else {
+            cout << "Wrong username/password, try again." << endl << endl;
+        }
+    }
+}
+
+// choose login panel
+void accLoginType() {
+    int userInput;
+
+    while (true) {
+        cout << "\nPlease select from the following menu options (1-9)" << endl;
+        cout << "0. Admin login" << endl;
+        cout << "1. User login" << endl;
+        cout << "2. End program" << endl;
+        cout << "Enter your choice (0-2): ";
+        cin >> userInput;
+        cout << endl;
+
+        switch (userInput) {
+            case 0:
+                adminLogin();
+            break;
+            case 1:
+                userLoginPanel();
+            break;
+            case 2:
+                cout << "Exiting program..." << endl;
+            return;
+            default:
+                cout << "Input not recognized, try again." << endl;
+            break;
+        }
+    }
+}
 
 // main func
 int main() {
