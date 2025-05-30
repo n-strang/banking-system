@@ -1,4 +1,4 @@
-This was a 1 of many summer projects to keep my understanding of C++ fresh. I tried to give this 1-3 hours per day minimum until completion 
+This was one of many summer projects to keep my understanding of C++ fresh. I tried to give this 1-3 hours per day minimum until completion 
 
 
 day 2/x
