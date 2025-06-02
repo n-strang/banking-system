@@ -14,8 +14,9 @@ using namespace std;
 // struct to create accounts
 struct accountData {
     string accUserName;
-    double Balance;
+    double accBalance;
     string accPassword;
+    int accPin;
 };
 
 // array that stores all accounts globally
@@ -31,17 +32,19 @@ void printAccData() {
     for (const auto& acc : allAccounts) {
         cout << "\nName: " << acc.accUserName;
         cout << "\nPassword: " << acc.accPassword;
-        cout << "\nbalance: " << acc.Balance;
+        cout << "\nbalance: " << acc.accBalance;
+        cout << "\npin: " << acc.accPin;
         cout << endl;
     }
 }
 
 // take data from createNewAcc() and make it an object, then push that object into the array
-void storeNewAccount(string name, string password, int balance) {
+void storeNewAccount(string name, string password, double balance, int pin) {
     accountData accData;
     accData.accUserName = name;
     accData.accPassword = password;
-    accData.Balance = balance;
+    accData.accBalance = balance;
+    accData.accPin = pin;
     allAccounts.push_back(accData);
 
 }
@@ -51,14 +54,17 @@ void createNewAcc() {
     string name;
     double bal = 0;
     string pword;
+    int pin = 0;
     cout << "creating new account..." << endl;
     cout << "enter an account name: ";
     cin >> name;
     cout << "\nenter an account password: ";
     cin >> pword;
+    cout << "Enter a pin: ";
+    cin >> pin;
     cout << "successfully created.";
 
-    storeNewAccount(name, pword, bal);
+    storeNewAccount(name, pword, bal, pin);
 
 }
 
