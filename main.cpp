@@ -22,9 +22,55 @@ struct accountData {
 // array that stores all accounts globally
 vector<accountData>allAccounts;
 
+bool searchForAccount() {
+    cout << "account name: " << endl;
+    string name;
+    cin >> name;
+    cout << endl;
+    for (const auto& acc : allAccounts) {
+        if (acc.accUserName == name) {
+            cout << acc.accUserName << endl;
+            cout << acc.accBalance << endl;
+            cout << acc.accPassword << endl;
+            cout << acc.accPin << endl;
+            return true;
+        }
+    }
+    cout << "Account not found.";
+    return false;
+}
+
+bool checkForAccount(string name, string pword) {
+    for (const auto& acc : allAccounts) {
+        if (acc.accUserName == name && acc.accPassword == pword) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void userOptions(string name, string password) {
+    cout << "welcome " << name << "!" << endl;
+    cout << "Select from the following options: " << endl;
+    cout << "1. Deposit \n 2. View balance \n 3. Change username/password \n 4. change pin \n 5.close account";
+}
+
 // user login
 void userLoginPanel() {
-    // will add a deposit / withdrawal / view function
+    string userName;
+    string password;
+    cout << "Welcome, enter username and password: " << endl;
+    cin >> userName;
+    cout << endl;
+    cin >> password;
+    cout << endl;
+    if (checkForAccount(userName, password)) {
+        cout << "successful" << endl;
+        userOptions(userName, password);
+    } else {
+        cout << "incorrect" << endl;
+    }
+
 }
 
 // prints data stored in account
@@ -86,7 +132,7 @@ void adminPanel() {
                 createNewAcc();
             break;
             case 2:
-                printAccData();
+                searchForAccount();
             break;
             case 0:
                 cout << "exiting admin panel... " << endl;
@@ -158,5 +204,3 @@ int main() {
     accLoginType();
     return 0;
 }
-
-
