@@ -1,11 +1,3 @@
-/*
-0> ROADMAP FOR BANKING SYSTEM:
-1> create main menu (all options)  ---------- DONE
-2> functions to log on to admin / user --------- SWAP AROUND accLoginType() THEN DONE
-3> save data using some sort of file (csv/txt?)
-4> store an array of different accounts ----------- DONE
-*/
-
 #include <iostream>
 #include <vector>
 #include <string>
@@ -57,8 +49,7 @@ void userOptions(string name, string password) {
 
 // user login
 void userLoginPanel() {
-    string userName;
-    string password;
+    string userName, password;
     cout << "Welcome, enter username and password: " << endl;
     cin >> userName;
     cout << endl;
@@ -97,9 +88,8 @@ void storeNewAccount(string name, string password, double balance, int pin) {
 
 // create a new account (username/password)
 void createNewAcc() {
-    string name;
+    string name, pword;
     double bal = 0;
-    string pword;
     int pin = 0;
     cout << "creating new account..." << endl;
     cout << "enter an account name: ";
@@ -149,8 +139,7 @@ void adminLogin() {
     // DEFAULT ADMIN LOGIN
     string adminName = "admin";
     string adminPassword = "123";
-    string loginNameAttempt;
-    string loginPasswordAttempt;
+    string loginNameAttempt, loginPasswordAttempt;
 
     while (true) {
         cout << "Enter admin username: ";
