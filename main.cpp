@@ -14,7 +14,7 @@ struct accountData {
 // array that stores all accounts globally
 vector<accountData>allAccounts;
 
-bool searchForAccount() {
+bool searchForSpecificAccount() {
     cout << "account name: " << endl;
     string name;
     cin >> name;
@@ -39,6 +39,37 @@ bool checkForAccount(string name, string pword) {
         }
     }
     return false;
+}
+
+void alphaSort(int userInput) {
+    if (userInput == 1) {
+        // sort a-z
+    } else if (userInput == 2){
+        // sort z-a
+    }
+    // pick up here
+}
+
+void listAllAccounts() {
+    int userInput;
+    while (true) {
+        cout << "How would you like to sort/display accounts?: " << endl;
+        cout << "1. Sort a-z by name: " << endl;
+        cout << "2. Sort z-a by name: " << endl;
+        cout << "3. exit menu " << endl;
+
+        switch (userInput) {
+            case 1:
+                alphaSort(userInput);
+            break;
+            case 2:
+                alphaSort(userInput);
+            break;
+            default:
+                cout << "try another input";
+            break;
+        }
+    }
 }
 
 void userOptions(string name, string password) {
@@ -111,8 +142,9 @@ void adminPanel() {
     while (true) {
         cout << "welcome to the admin panel" << endl;
         cout << "select from the following " << endl;
-        cout << "1. Create a new account(s) " << endl;
-        cout << "2. View created Account(s) " << endl;
+        cout << "1. Create a new account " << endl;
+        cout << "2. View all created accounts " << endl;
+        cout << "3. View a created account" << endl;
         cout << "0. exit admin panel " << endl;
         cin >> userInput;
         cout << endl;
@@ -122,8 +154,10 @@ void adminPanel() {
                 createNewAcc();
             break;
             case 2:
-                searchForAccount();
+                searchForSpecificAccount();
             break;
+            case 3:
+                listAllAccounts();
             case 0:
                 cout << "exiting admin panel... " << endl;
             return;
