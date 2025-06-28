@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
+#include <iterator>
 using namespace std;
 
 // struct to create accounts
@@ -42,8 +44,14 @@ bool checkForAccount(string name, string pword) {
 }
 
 void alphaSort(int userInput) {
+    int curr;
+    int next;
+    int last;
     if (userInput == 1) {
         // sort a-z
+        for (const auto& acc : allAccounts) {
+            // finish
+        }
     } else if (userInput == 2){
         // sort z-a
     }
