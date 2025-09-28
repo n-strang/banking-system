@@ -18,6 +18,8 @@ View accounts in an array ✅
 
 add accounts to array ✅
 
+Sorting method to view all accounts ✅
+
 
 delete accounts from array ❌
 
@@ -26,6 +28,3 @@ account details save to external file ❌
 
 
 edit admin/user account details like pword/name/pin/bal ❌
-
-
-
